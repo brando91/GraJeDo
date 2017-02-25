@@ -1,0 +1,5 @@
+bin
+.gradle
+gradle-build
+logs
+todeploy
