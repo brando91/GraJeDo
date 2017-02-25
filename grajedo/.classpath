@@ -2,5 +2,20 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.5.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/ecj-4.4.jar"/>
+	<classpathentry kind="lib" path="lib/gson-2.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/hamcrest-library-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="lib/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-all-9.4.1.v20170120-uber.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/mvel2-2.1.5.Final.jar"/>
+	<classpathentry kind="lib" path="lib/pat-1.5.3.jar"/>
+	<classpathentry kind="lib" path="lib/rythm-engine-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

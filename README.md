@@ -1,7 +1,7 @@
 # GraJeDo
 An entrypoint for building your Java web application with Gradle and Jetty and running it in a Docker container.
 
-GraJeDo is just an entrypoint for building your awesome web application. It is meant for **Ubuntu** OS and it is written in **Java 8**. The web server used is **[Jetty](http://www.eclipse.org/jetty/) embedded**, **[Gradle](https://gradle.org/)** is used for building and testing and finally **[Docker](https://www.docker.com/)** for shipping.
+GraJeDo is just an entrypoint for building your awesome web application. It is meant for **Ubuntu** OS and it is written in **Java 8**. The web server used is **[Jetty](http://www.eclipse.org/jetty/)** embedded, **[Gradle](https://gradle.org/)** is used for building and testing and finally **[Docker](https://www.docker.com/)** for shipping.
 
 ### What has been done ###
 * Routing
@@ -14,19 +14,21 @@ GraJeDo is just an entrypoint for building your awesome web application. It is m
 * Gradle scripts for building testing and preparing deploy package
 * Scripts for installing and launching the application in a docker container
 
-# Usage #
+The rest is up to you...
 
-## Build & Test ##
+## Usage ##
+
+#### Build & Test ####
 ```
 ./build-and-test.sh
 ```
 
-## Launch application in a new container ##
+#### Launch application in a new container ####
 ```
 ./launch-application.sh
 ```
 
-# Set Up #
+## Set Up ##
 
 #### Repository ####
 ```
@@ -42,7 +44,7 @@ cd GraJeDo
 ./scripts/install-dependency.sh java
 ```
 
-In case you have Java 7 installed launch the following and select Java 8
+In case you also have Java 7 installed launch the following and select Java 8
 ```
 sudo update-alternatives --config java
 sudo update-alternatives --config javac

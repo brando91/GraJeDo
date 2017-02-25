@@ -1,0 +1,8 @@
+@args String who
+    
+@include(header)
+	
+	<h1>Home Page</h1>
+	Hello @who!
+  
+@include(footer)
