@@ -1,0 +1,2 @@
+script:
+  - ./build-and-test.sh

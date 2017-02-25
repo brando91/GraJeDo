@@ -1,4 +1,4 @@
-# GraJeDo
+# GraJeDo [![Build Status](https://api.travis-ci.org/brando91/GraJeDo.svg?branch=master)](https://travis-ci.org/brando91/GraJeDo)
 An entrypoint for building your Java web application with Gradle and Jetty and running it in a Docker container.
 
 GraJeDo is just an entrypoint for building your awesome web application. It is meant for **Ubuntu** OS and it is written in **Java 8**. The web server used is **[Jetty](http://www.eclipse.org/jetty/)** embedded, **[Gradle](https://gradle.org/)** is used for building and testing and finally **[Docker](https://www.docker.com/)** for shipping.
