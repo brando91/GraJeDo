@@ -2,6 +2,8 @@ sudo: required
 
 language: java
 
-script:
+before_script:
   - ./scripts/install-dependency.sh gradle
+
+script:
   - ./build-and-test.sh
