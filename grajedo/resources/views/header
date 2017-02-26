@@ -3,11 +3,11 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>I Will</title>
-		<meta name="author" content="">
-		<meta name="description" content="When there is a will there is a way">
+		<title>GraJeDo</title>
+		<meta name="author" content="Brando Preda">
+		<meta name="description" content="An entrypoint for building your Java web application with Gradle and Jetty and running it in a Docker container.">
 			
-	    <script src="/assets/i-will.js"></script>
+	    <script src="/assets/grajedo.js"></script>
 	</head>
 	
 	<body>
