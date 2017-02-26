@@ -28,6 +28,6 @@ then
 	signal "Installing Gradle"
 	sudo add-apt-repository -y ppa:cwchien/gradle
 	sudo apt-get update
-	sudo apt-get install -y gradle-3.3
+	sudo apt-get install -y gradle-3.4
 	signal "Done"
 fi
