@@ -9,8 +9,8 @@ GraJeDo is just an entrypoint for building your awesome web application. It is m
 * [Rythm](http://rythmengine.org/) template engine
 * Logging
 * Self Diagnostics
-* Unit tests
-* Integration tests
+* Unit tests setup
+* Integration tests setup
 * Gradle scripts for building testing and preparing deploy package
 * Scripts for installing and launching the application in a docker container
 
