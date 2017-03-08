@@ -14,7 +14,6 @@ function build_environment(){
 
 function create_jar(){
 	signal "Creating Application Jar"
-	cd $project
 	./gradlew clean install
 	rm -rf todeploy
 	mkdir -p todeploy
@@ -22,7 +21,7 @@ function create_jar(){
 	cp -r resources todeploy/resources
 	cd todeploy
 	tar -czf release.tgz *
-	cd ../..
+	cd ..
 	signal "Done"
 }
 
@@ -50,18 +49,19 @@ function start(){
 
 function production_tests(){
 	signal "Production Tests"
-	cd $project
 	./gradlew productionTest
-	cd ..
 	signal "Done"
 }
 
 set -e
+relative_path=`dirname $0`
+project=`cd $relative_path;pwd`
+
 environmentImage=environment
 grajedoImage=grajedo
 grajedoContainer=grajedo
-project=grajedo
 
+cd $project
 build_environment
 create_jar
 build

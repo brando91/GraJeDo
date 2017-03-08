@@ -6,10 +6,12 @@ function signal(){
 
 
 set -e
+relative_path=`dirname $0`
+project=`cd $relative_path;pwd`
 
 signal "Building GraJeDo"
 
-cd grajedo
+cd $project
 rm -rf logs
 mkdir logs
 ./gradlew clean build
