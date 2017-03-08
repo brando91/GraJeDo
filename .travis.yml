@@ -1,9 +1,4 @@
-sudo: required
-
 language: java
-
-before_script:
-  - ./scripts/install-dependency.sh gradle
 
 script:
   - ./build-and-test.sh
