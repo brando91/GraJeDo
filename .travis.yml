@@ -6,4 +6,4 @@ before_script:
   - ./scripts/install-dependency.sh gradle
 
 script:
-  - ./grajedo/build-and-test.sh
+  - ./build-and-test.sh
