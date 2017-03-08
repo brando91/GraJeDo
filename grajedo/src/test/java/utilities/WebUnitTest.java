@@ -11,8 +11,7 @@ public class WebUnitTest {
 	
 	@BeforeClass
 	public static void startServer() throws Exception{
-		application = new Application(8080);
-		application.start();
+		application = new Application().startLocally();
 	}
 
 	@AfterClass

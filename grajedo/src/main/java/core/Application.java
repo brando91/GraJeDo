@@ -16,18 +16,27 @@ public class Application {
 
 	private Server server;
 
-	public Application(int port) throws Exception{
+	public Application productionStart() throws Exception {
+		Template.initializeForProduction();
+		startServer(80);
+		return this;
+	}
+	
+	public Application startLocally() throws Exception {
+		Template.initializeForDevelopment();
+		startServer(8080);
+		return this;
+	}
+
+	public void stop() throws Exception {
+		this.server.stop();
+	}
+	
+	private void startServer(int port) throws Exception {
 		Server server = new Server(port);
 		server.setHandler(handlers());
         this.server = server;
-	}
-
-	public void start() throws Exception {
-		this.server.start();
-	}
-		
-	public void stop() throws Exception {
-		this.server.stop();
+        this.server.start();
 	}
 	
 	private HandlerList handlers() throws Exception {
