@@ -20,12 +20,12 @@ The rest is up to you...
 
 #### Build & Test ####
 ```
-./build-and-test.sh
+./scripts/build-and-test.sh
 ```
 
 #### Launch application in a new container ####
 ```
-./launch-application.sh
+./scripts/launch-application.sh
 ```
 
 ## Set Up ##
