@@ -52,3 +52,17 @@ sudo update-alternatives --config javac
 
 #### Docker ####
 * Install Docker following the official guide https://docs.docker.com/engine/installation/linux/ubuntu/
+
+#### Eclipse IDE ####
+* Install Eclipse Neon from https://eclipse.org/downloads/
+* Selecting Java 8
+    * Project -> Properties -> Java Build Path -> Libraries -> Add Library -> JRE System Library -> Installed JREs -> Add -> Standard VM
+    * install directory should be ```/usr/lib/jvm/java-8-openjdk-amd64```
+* Code Assist Preferences
+    * window --> preferences --> java --> editor --> content assist --> favorites -> New Member
+    * org.hamcrest.Matchers.*
+    * org.junit.*
+    * org.junit.Assert.*
+    * org.junit.Assume.*
+    * org.junit.matchers.JUnitMatchers.*
+* Configuring a Gradle project: http://www.vogella.com/tutorials/EclipseGradle/article.html
