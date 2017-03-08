@@ -1,4 +1,4 @@
 language: java
 
 script:
-  - ./build-and-test.sh
+  - ./scripts/build-and-test.sh
