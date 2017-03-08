@@ -12,6 +12,6 @@ signal "Building GraJeDo"
 cd grajedo
 rm -rf logs
 mkdir logs
-gradle clean build
+./gradlew clean build
 
 signal "Done"

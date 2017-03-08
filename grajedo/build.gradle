@@ -1,26 +1,8 @@
-description = "GraJeDo"
-apply plugin: "java"
+apply plugin: 'java'
 apply plugin: 'application'
 
-buildDir = "gradle-build"
-archivesBaseName = "grajedo"
-applicationName = "grajedo"
+description = "GraJeDo"
 mainClassName = "main.GraJeDo"
-applicationDefaultJvmArgs = ["-d64 -Xms256m -Xmx4000m"]
-
-sourceSets {
-   main {
-      java {
-         srcDir "src"
-      }
-   }
-	
-   test {
-      java {
-         srcDir "test"
-      }
-   }
-}
 
 dependencies {
     compile fileTree(dir: "lib", include: "*.jar")

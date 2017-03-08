@@ -15,10 +15,10 @@ function build_environment(){
 function create_jar(){
 	signal "Creating Application Jar"
 	cd $project
-	gradle clean install
+	./gradlew clean install
 	rm -rf todeploy
 	mkdir -p todeploy
-	cp -r gradle-build/install/grajedo/* todeploy
+	cp -r build/install/grajedo/* todeploy
 	cp -r resources todeploy/resources
 	cd todeploy
 	tar -czf release.tgz *
@@ -51,7 +51,7 @@ function start(){
 function production_tests(){
 	signal "Production Tests"
 	cd $project
-	gradle productionTest
+	./gradlew productionTest
 	cd ..
 	signal "Done"
 }

@@ -50,10 +50,5 @@ sudo update-alternatives --config java
 sudo update-alternatives --config javac
 ```
 
-#### Gradle ####
-```
-./scripts/install-dependency.sh gradle
-```
-
 #### Docker ####
 * Install Docker following the official guide https://docs.docker.com/engine/installation/linux/ubuntu/
