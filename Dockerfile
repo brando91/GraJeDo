@@ -1,4 +1,4 @@
-FROM environment
+FROM grajedo-environment
 
 LABEL name="GraJeDo"
 

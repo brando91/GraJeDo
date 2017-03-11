@@ -10,7 +10,12 @@ dependency=$1
 if [[ $dependency == setup ]]
 then
 	signal "Installing preliminary dependency"
-	sudo apt-get install -y software-properties-common
+	sudo apt-get update
+	sudo apt-get install -y --no-install-recommends software-properties-common
+	locale-gen en_US.UTF-8
+	export LC_ALL=en_US.UTF-8
+	export LANG=en_US.UTF-8
+	export LANGUAGE=en_US:en
 	signal "Done"
 fi
 

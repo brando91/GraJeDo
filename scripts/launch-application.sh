@@ -7,7 +7,7 @@ function signal(){
 function build_environment(){
 	if [[ "$(docker images -q $environmentImage)" == "" ]]; then
 		signal "Building Environment Image"
-		docker build --rm -t $environmentImage environment
+		docker build --rm -t $environmentImage -f environment/Dockerfile .
 		signal "Done"
 	fi
 }
@@ -57,7 +57,7 @@ set -e
 relative_path=`dirname $0`
 project=`cd $relative_path/../;pwd`
 
-environmentImage=environment
+environmentImage=grajedo-environment
 grajedoImage=grajedo
 grajedoContainer=grajedo
 
