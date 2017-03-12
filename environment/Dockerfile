@@ -9,5 +9,5 @@ COPY scripts/install-dependency.sh /${destinationRoot}/
 WORKDIR /${destinationRoot}
 
 RUN \
-	./install-dependency.sh setup && \
+	/bin/bash -c "source ./install-dependency.sh setup" && \
 	./install-dependency.sh java
