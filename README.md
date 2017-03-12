@@ -39,6 +39,15 @@ cd GraJeDo
 ./scripts/install-dependency.sh setup
 ```
 
+#### Environment ####
+Before launching theese commands edit the script ```scripts/install-dependency.sh``` in order to set your country [locales](https://docs.moodle.org/dev/Table_of_locales)
+
+```
+. ./scripts/install-dependency.sh locales
+./scripts/install-dependency.sh setup
+```
+
+
 #### Java ####
 ```
 ./scripts/install-dependency.sh java
