@@ -1,11 +1,9 @@
 package pages;
 
+import core.Communication;
+
 public interface Page {
 
-	String body();
-	
-	int status();
-
-	String contentType();
+	PageResult process(Communication communication) throws Exception;
 
 }

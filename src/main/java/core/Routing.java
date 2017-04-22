@@ -3,7 +3,8 @@ package core;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,46 +13,55 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
+import pages.ActionPage;
 import pages.InternalErrorPage;
-import pages.MainPage;
 import pages.NotFoundPage;
-import pages.Page;
+import pages.PageResult;
 
 public class Routing extends AbstractHandler{
 
-	private List<MainPage> pages;
+	private List<ActionPage> pages;
 
-	public Routing(MainPage... page) {
+	public Routing(ActionPage... page) {
 		this.pages = Arrays.asList(page);
 	}
 
 	@Override
 	public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		Page page = routeTo(target);
+		HttpCommunication communication = new HttpCommunication(request, response);
+		PageResult result = routeTo(target, communication);
 		
-		response.setContentType(page.contentType());
-		response.setCharacterEncoding("UTF-8");
-		response.setStatus(page.status());
-		response.getWriter().write(page.body());
+		response.setContentType(result.contentType());
+		response.setCharacterEncoding(result.encoding());
+		response.setStatus(result.status());
+		response.getWriter().write(result.content());
 		
         baseRequest.setHandled(true);
         
-        logRequest(target, baseRequest, page.status());
+        logRequest(target, baseRequest, result.status());
 	}
 
-	public Page routeTo(String route) {
+	public PageResult routeTo(String route, Communication communication) {
 		try{
-			Optional<MainPage> matchingPage = this.pages.stream()
-														.filter(page -> page.route().equals(route))
-														.findFirst();
-			return matchingPage.isPresent() ?
-						matchingPage.get().process() :
-						new NotFoundPage();
+			for (ActionPage page : pages) {
+				Matcher matcher = Pattern.compile(page.route()).matcher(route);
+				if(matcher.matches()){
+					return process(page, matcher, communication);
+				}
+			}
+			return new NotFoundPage().process(communication);
 		}
 		catch (Exception e) {
 			Events.error("Error handling route " + route, e);
-			return new InternalErrorPage(e);
+			return new InternalErrorPage(e).process(communication);
 		}
+	}
+
+	private PageResult process(ActionPage page, Matcher matcher, Communication communication) throws Exception {
+		if(matcher.groupCount() > 0){
+			communication.withRouteParameter(matcher.group(1));
+		}
+		return page.process(communication);
 	}
 	
 	private void logRequest(String target, Request baseRequest, int status) {

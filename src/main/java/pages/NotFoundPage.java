@@ -1,23 +1,13 @@
 package pages;
 
-import javax.servlet.http.HttpServletResponse;
+import org.eclipse.jetty.http.HttpStatus;
 
-import core.ContentTypes;
+import core.Communication;
 
 public class NotFoundPage implements Page {
-
-	@Override
-	public String body() {
-		return "404 Page Not Found";
-	}
-
-	@Override
-	public int status() {
-		return HttpServletResponse.SC_NOT_FOUND;
-	}
 	
 	@Override
-	public String contentType() {
-		return ContentTypes.Html;
+	public ActionResult process(Communication communication){
+		return new ActionResult("404 Page Not Found", HttpStatus.NOT_FOUND_404);
 	}
 }

@@ -15,6 +15,8 @@ import com.google.gson.Gson;
 
 import core.JsonChecks;
 import pages.ChecksPage;
+import pages.PageResult;
+import utilities.FakeCommunication;
 import core.ContentTypes;
 
 public class ChecksPageTest {
@@ -26,14 +28,14 @@ public class ChecksPageTest {
 	
 	@Test
 	public void statusCode() throws Exception {
-		assertThat(new ChecksPage().contentType(), is(equalTo(ContentTypes.Json)));
+		assertThat(new ChecksPage().process(new FakeCommunication()).contentType(), is(equalTo(ContentTypes.Json)));
 	}
 	
 	@Test
 	public void body() throws Exception {
-		ChecksPage checksPage = new ChecksPage().process();
+		PageResult checksPage = new ChecksPage().process(new FakeCommunication());
 		
-		JsonChecks checks = new Gson().fromJson(checksPage.body(), JsonChecks.class);
+		JsonChecks checks = new Gson().fromJson(checksPage.content(), JsonChecks.class);
 		
 		assertThat(checks.LogsExists, is(equalTo(true)));
 		assertThat(checks.AssetsExists, is(equalTo(true)));

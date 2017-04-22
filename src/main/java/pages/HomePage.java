@@ -1,15 +1,9 @@
 package pages;
 
+import core.Communication;
 import core.Template;
 
-public class HomePage extends MainPage{
-
-	private String body;
-
-	@Override
-	public String body() {
-		return this.body;
-	}
+public class HomePage implements ActionPage{
 
 	@Override
 	public String route() {
@@ -17,11 +11,11 @@ public class HomePage extends MainPage{
 	}
 
 	@Override
-	public Page process() throws Exception {
-		this.body = new Template("home")
-							.add("who", "World")
-							.render();
-		return this;
+	public PageResult process(Communication communication) throws Exception {
+		String content = new Template("home")
+								.add("who", "World")
+								.render();
+		return new ActionResult(content);
 	}
 
 }

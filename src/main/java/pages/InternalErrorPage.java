@@ -2,9 +2,9 @@ package pages;
 
 import java.util.Arrays;
 
-import javax.servlet.http.HttpServletResponse;
+import org.eclipse.jetty.http.HttpStatus;
 
-import core.ContentTypes;
+import core.Communication;
 
 public class InternalErrorPage implements Page{
 
@@ -15,17 +15,7 @@ public class InternalErrorPage implements Page{
 	}
 
 	@Override
-	public int status() {
-		return HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
-	}
-
-	@Override
-	public String body() {
-		return this.body;
-	}
-
-	@Override
-	public String contentType() {
-		return ContentTypes.Html;
+	public ActionResult process(Communication communication){
+		return new ActionResult(this.body, HttpStatus.INTERNAL_SERVER_ERROR_500);
 	}
 }

@@ -1,42 +1,47 @@
 package utilities;
 
-import javax.servlet.http.HttpServletResponse;
+import core.Communication;
+import pages.ActionPage;
+import pages.ActionResult;
 
-import pages.MainPage;
-
-public class FakePage extends MainPage{
+public class FakePage implements ActionPage{
 
 	private String route;
-	private String body;
 	private boolean alwaysFail;
+	private Communication communication;
+	private String content;
 
 	public FakePage(String route) {
 		this.route = route;
 		this.alwaysFail = false;
+		this.content = "Fake Page";
 	}
-
+	
 	@Override
 	public String route() {
 		return this.route;
 	}
 
 	@Override
-	public FakePage process() throws Exception {
-		this.body = "Fake Page";
+	public ActionResult process(Communication communication) throws Exception {
+		this.communication = communication;
 		if(this.alwaysFail){
 			throw new Exception("Always Fail Exception");
 		}
-		return this;
-	}
-	
-	@Override
-	public String body() {
-		return this.body;
+		return new ActionResult(this.content);
 	}
 
-	public MainPage alwaysFail() {
+	public ActionPage alwaysFail() {
 		this.alwaysFail = true;
-		this.status = HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+		return this;
+	}
+
+	public String parameter() {
+		return this.communication.getRouteParameter();
+	}
+
+	public FakePage withContent(String content) {
+		this.content = content;
 		return this;
 	}
 }

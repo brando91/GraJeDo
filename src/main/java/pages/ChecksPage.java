@@ -4,25 +4,18 @@ import java.io.File;
 
 import com.google.gson.Gson;
 
+import core.Communication;
 import core.JsonChecks;
 
-public class ChecksPage extends JsonPage{
-
-	private JsonChecks checks;
+public class ChecksPage implements ActionPage{
 
 	@Override
-	public String body() {
-		return new Gson().toJson(this.checks);
-	}
-
-	@Override
-	public ChecksPage process() {
+	public PageResult process(Communication communication) {
 		JsonChecks checks = new JsonChecks();
 		checks.LogsExists = new File("logs").exists();
 		checks.AssetsExists = new File("resources/assets").exists();
-		this.checks = checks;
 		
-		return this;
+		return new JsonResult(new Gson().toJson(checks));
 	}
 
 	@Override

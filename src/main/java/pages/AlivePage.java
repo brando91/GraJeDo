@@ -1,22 +1,16 @@
 package pages;
 
-public class AlivePage extends MainPage
-{
-	private String body;
+import core.Communication;
 
+public class AlivePage implements ActionPage
+{
 	@Override
 	public String route() {
 		return "/alive";
 	}
 
 	@Override
-	public String body() {
-		return this.body;
-	}
-
-	@Override
-	public Page process() throws Exception {
-		this.body = "Alive";
-		return this;
+	public PageResult process(Communication communication) throws Exception {
+		return new ActionResult("Alive");
 	}
 }
