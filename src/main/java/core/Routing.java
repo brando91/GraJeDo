@@ -28,6 +28,8 @@ public class Routing extends AbstractHandler{
 
 	@Override
 	public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		baseRequest.setAttribute("org.eclipse.jetty.multipartConfig", new MultipartConfigElement("/tmp/grajedo"));
+
 		HttpCommunication communication = new HttpCommunication(request, response);
 		PageResult result = routeTo(target, communication);
 		
